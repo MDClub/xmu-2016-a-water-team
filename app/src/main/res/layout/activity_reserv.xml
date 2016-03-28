@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.edu.xmu.hotel.ReservActivity">
+
+    <DatePicker
+        android:id="@+id/datePick1"
+        android:calendarViewShown="true"
+        android:spinnersShown="false"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        />
+    <TextView
+        android:id="@+id/todaytext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:stretchColumns="0">
+        <TableRow>
+            <TextView
+                android:id="@+id/startdaytext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="入住时间:\n\n"/>
+
+            <Button
+                android:id="@+id/checkinday_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选这天入住"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:id="@+id/enddaytext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="离店时间:\n\n"/>
+
+            <Button
+                android:id="@+id/leaveday_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选这天离店"/>
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/dayselectbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="搜索满足条件的房间"/>
+
+</LinearLayout>

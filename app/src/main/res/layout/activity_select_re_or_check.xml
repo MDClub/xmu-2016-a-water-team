@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="cn.edu.xmu.hotel.SelectReOrCheck">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="您当前的账户余额为：" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="充值" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请选择：" />
+
+    <Button
+        android:id="@+id/reserv_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="提前预定未来7天内的酒店"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="或者：" />
+
+    <Button
+        android:id="@+id/checkin_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="已到酒店，直接预定或自助入住"/>
+
+</LinearLayout>
