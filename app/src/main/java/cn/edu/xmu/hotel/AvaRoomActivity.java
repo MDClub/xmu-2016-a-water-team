@@ -34,6 +34,8 @@ public class AvaRoomActivity extends ListActivity {
     String roomtypeCommit;
     String startDay;
 
+    private String amount = null;
+
     Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -54,6 +56,29 @@ public class AvaRoomActivity extends ListActivity {
                     @Override
                     public void onFinish(String data, String info, int code) {
                         Toast.makeText(MyApplication.getContext(), info, Toast.LENGTH_SHORT).show();
+                        if(code == 7) {
+                            amount = data;
+                            CustomDialog.Builder builder = new CustomDialog.Builder(MyApplication.getContext());
+                            builder.setMessage("您的余额不足,是否立即充值?");
+                            builder.setTitle("提示");
+                            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                    Intent intent = new Intent(MyApplication.getContext(), RechargeActivity.class);
+                                    intent.putExtra("amount", Integer.parseInt(amount));
+                                }
+                            });
+
+                            builder.setNegativeButton("取消",
+                                    new android.content.DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+
+                            builder.create().show();
+
+                        }
                     }
 
                     @Override
