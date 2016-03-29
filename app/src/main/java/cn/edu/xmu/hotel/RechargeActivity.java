@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -78,8 +79,8 @@ public class RechargeActivity extends Activity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.amountcommitbutton: {
-                if((chargeAmount.getText().toString().matches("^[0-9]+$") == false)&&(Integer.parseInt(chargeAmount.getText().toString()) > 0)) {
-                    Toast.makeText(this, "充值金额必须为正整数,请核对后再试", Toast.LENGTH_SHORT);
+                if((chargeAmount.getText().toString().matches("^[0-9]+$") == false)||(Integer.parseInt(chargeAmount.getText().toString()) <= 0)) {
+                    Toast.makeText(this, "充值金额必须为正整数,请核对后再试", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     HttpUtil.sendHttpRequest(HttpUtil.rechargeLink + "id=" + tempUserName + "&" +

@@ -14,11 +14,12 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/chargeamount"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/amountcommitbutton"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/amountcommitbutton"
+        android:text="确认充值"/>
 </LinearLayout>

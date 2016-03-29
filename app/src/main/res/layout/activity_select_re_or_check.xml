@@ -1,39 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="cn.edu.xmu.framelayoutdemo.MainActivity">
+
+
+<TextView
+    android:background="#7a7"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="cn.edu.xmu.hotel.SelectReOrCheck">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="您当前的账户余额为：" />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:text="充值" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="请选择：" />
+    android:layout_height="wrap_content"
+    android:text="\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"/>
 
-    <Button
-        android:id="@+id/reserv_select"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="提前预定未来7天内的酒店"/>
+
+<LinearLayout
+    android:layout_marginTop="80dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="或者：" />
-
-    <Button
-        android:id="@+id/checkin_select"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="已到酒店，直接预定或自助入住"/>
+        android:textColor="#eee"
+        android:textSize="20dp"
+        android:text="    欢迎回来!"/>
+
+
+    <LinearLayout
+        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/currentorder_text"
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:layout_marginLeft="20dp"
+            android:text="当前订单"/>
+
+        <TextView
+            android:id="@+id/historyorder_text"
+            android:layout_width="wrap_content"
+            android:clickable="true"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48dp"
+            android:textSize="15dp"
+            android:text="历史订单"/>
+
+        <TextView
+            android:id="@+id/currentcheckin_text"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:clickable="true"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="当前入住"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="280dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/common_green_white_button_style"
+            android:textColor="#7a7"
+            android:layout_marginLeft="10dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="到店入住"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:id="@+id/reserv_select"
+            style="@style/common_green_white_button_style"
+            android:layout_height="wrap_content"
+            android:textColor="#7a7"
+            android:paddingLeft="40dp"
+            android:layout_marginLeft="10dp"
+            android:paddingRight="40dp"
+            android:text="提前预定"/>
+    </LinearLayout>
 
 </LinearLayout>
+</FrameLayout>

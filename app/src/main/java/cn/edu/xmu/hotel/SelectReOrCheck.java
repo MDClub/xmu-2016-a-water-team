@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 
 public class SelectReOrCheck extends Activity implements View.OnClickListener {
@@ -20,6 +21,7 @@ public class SelectReOrCheck extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_select_re_or_check);
         ActivityCollector.addActivity(this);
         button1 = (Button)findViewById(R.id.reserv_select);

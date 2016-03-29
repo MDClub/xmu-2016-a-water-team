@@ -20,7 +20,6 @@ public class NewAppJSONObject  {
             }
         } catch (JSONException e) {
             if (listener != null) {
-                Log.d("Test", e.getMessage());
                 listener.onError(e);
             }
         }

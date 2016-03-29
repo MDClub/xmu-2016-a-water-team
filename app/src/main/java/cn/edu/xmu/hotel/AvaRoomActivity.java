@@ -56,29 +56,14 @@ public class AvaRoomActivity extends ListActivity {
                     @Override
                     public void onFinish(String data, String info, int code) {
                         Toast.makeText(MyApplication.getContext(), info, Toast.LENGTH_SHORT).show();
+
                         if(code == 7) {
                             amount = data;
-                            CustomDialog.Builder builder = new CustomDialog.Builder(MyApplication.getContext());
-                            builder.setMessage("您的余额不足,是否立即充值?");
-                            builder.setTitle("提示");
-                            builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                    Intent intent = new Intent(MyApplication.getContext(), RechargeActivity.class);
-                                    intent.putExtra("amount", Integer.parseInt(amount));
-                                }
-                            });
-
-                            builder.setNegativeButton("取消",
-                                    new android.content.DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            dialog.dismiss();
-                                        }
-                                    });
-
-                            builder.create().show();
-
+                            Intent intent = new Intent(MyApplication.getContext(), RechargeActivity.class);
+                            intent.putExtra("amount", Integer.parseInt(amount));
+                            startActivity(intent);
                         }
+
                     }
 
                     @Override
@@ -149,61 +134,8 @@ public class AvaRoomActivity extends ListActivity {
         return list;
     }
 
-
-
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-
-        /*
-        int totalPrice = days * Integer.parseInt((String)roomTypePrice.get(position).toString());
-        CustomDialog.Builder builder = new CustomDialog.Builder(this);
-        roomtypeCommit = (String)roomTypeList.get(position).toString();
-        builder.setMessage(().append("\u60a8\u9009\u62e9\u7684\u623f\u95f4\u7c7b\u578b\u4e3a:").append((String)roomTypeList.get(position).toString()).append("\n").append("\u5171"));
-        localCustomDialog1 = ().append("\u60a8\u9009\u62e9\u7684\u623f\u95f4\u7c7b\u578b\u4e3a:").append((String)roomTypeList.get(position).toString()).append("\n").append("\u5171").append(Integer.toString("\u5171")).append("\u665a,").append("\u603b\u4ef7\u4e3a: ").append(Integer.toString(totalPrice)).toString();
-        builder.setTitle("\u8bf7\u786e\u8ba4\u60a8\u7684\u9009\u62e9");
-        builder.setPositiveButton("\u786e\u5b9a", new DialogInterface.OnClickListener(this) {
-
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-                SharedPreferences pref = getSharedPreferences("data", 0x0);
-                String tempusername = pref.getString("tempusername", "");
-                if(tempusername != "") {
-                    String temppassword = pref.getString("temppassword", "");
-                    try {
-                        HttpUtil.sendHttpRequest(().append(HttpUtil.commitReservLink).append("id=").append(tempusername).append("&").append("password=").append(temppassword).append("&").append("startday=").append(startDay).append("&").append("endday=").append(endDay).append("&").append("roomtype="), roomtypeCommit);
-                        return;
-                        localStringBuilder1 = ().append(HttpUtil.commitReservLink).append("id=").append(tempusername).append("&").append("password=").append(temppassword).append("&").append("startday=").append(startDay).append("&").append("endday=").append(endDay).append("&").append("roomtype=").append(URLEncoder.encode(roomtypeCommit, "UTF-8")).toString()AvaRoomActivity.3.1 localAvaRoomActivity.3.12 = new HttpCallbackListener(this) {
-
-                            public void onFinish(String response) {
-                                Message msg = new Message();
-                                msg.what = 0x789;
-                                msg.obj = response;
-                                handler.sendMessage(msg);
-                            }
-
-                            public void onError(Exception e) {
-                                Message msg = new Message();
-                                msg.what = 0x456;
-                                msg.obj = "\u7f51\u7edc\u9519\u8bef\uff0c\u8bf7\u91cd\u8bd5";
-                                handler.sendMessage(msg);
-                            }
-                        };
-                    } catch(UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                        return;
-                    }
-                    Toast.makeText(MyApplication.getContext(), "\u767b\u5f55\u8d85\u65f6\uff01\u8bf7\u91cd\u65b0\u767b\u5f55\uff01", roomtypeCommit);
-                }
-            }
-        });
-        builder.setNegativeButton("\u53d6\u6d88", new DialogInterface.OnClickListener(this) {
-
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-        builder.create().show();
-        */
 
         int totalPrice = days * (Integer.parseInt(roomTypePrice.get(position).toString()));
         CustomDialog.Builder builder = new CustomDialog.Builder(this);
@@ -218,15 +150,6 @@ public class AvaRoomActivity extends ListActivity {
                 String tempusername = pref.getString("tempusername", "");
                 if(tempusername != "") {
                     String temppassword = pref.getString("temppassword", "");
-
-                    Log.d("Testusername", tempusername);
-                    Log.d("Testpassword", temppassword);
-
-                    Log.d("Testfordif", HttpUtil.commitReservLink + "id=" + tempusername + "&" +
-                            "password=" + temppassword + "&" +
-                            "startday=" + startDay + "&" +
-                            "endday=" + endDay + "&" +
-                            "roomtype=" + roomtypeCommit);
                     try {
                         HttpUtil.sendHttpRequest(HttpUtil.commitReservLink + "id=" + tempusername + "&" +
                                 "password=" + temppassword + "&" +
@@ -240,7 +163,6 @@ public class AvaRoomActivity extends ListActivity {
                                 msg.obj = response;
                                 handler.sendMessage(msg);
                             }
-
                             @Override
                             public void onError(Exception e) {
                                 Message msg = new Message();
