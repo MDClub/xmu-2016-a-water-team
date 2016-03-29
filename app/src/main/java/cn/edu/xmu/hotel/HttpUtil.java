@@ -27,6 +27,8 @@ public class HttpUtil {
 
     public static String commitReservLink = host + "/commit/checkbalance.php?";
 
+    public static String rechargeLink = host + "/recharge/recharge.php?";
+
     public static void sendHttpRequest(final String address, final HttpCallbackListener listener) {
         new Thread(new Runnable() {
             @Override

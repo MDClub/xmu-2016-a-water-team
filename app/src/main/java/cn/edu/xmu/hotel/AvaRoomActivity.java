@@ -44,6 +44,9 @@ public class AvaRoomActivity extends ListActivity {
                         new String[]{"title","info","img","price","amount"},
                         new int[]{R.id.title,R.id.info,R.id.img,R.id.price,R.id.amount});
                 setListAdapter(adapter);
+                if(roomTypeList.size() == 0) {
+                    Toast.makeText(MyApplication.getContext(), "该时段已满房!请返回查找其他时段的房间!", Toast.LENGTH_SHORT).show();
+                }
             } else if (msg.what == 0x456) {
                 Toast.makeText(MyApplication.getContext(), (String) msg.obj, Toast.LENGTH_SHORT).show();
             } else if (msg.what == 0x789) {

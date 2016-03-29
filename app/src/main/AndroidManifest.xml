@@ -24,7 +24,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SelectReOrCheck" />
         <activity android:name=".ReservActivity" />
-        <activity android:name=".AvaRoomActivity"></activity>
+        <activity android:name=".AvaRoomActivity" />
+        <activity android:name=".RechargeActivity"></activity>
     </application>
 
 </manifest>
