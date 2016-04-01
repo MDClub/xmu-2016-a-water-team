@@ -20,6 +20,10 @@ public class HttpUtil {
 
     public static String historyOrderLink = host + "/search/historyorder.php?";
 
+    public static String currentCheckInLink = host + "/search/currentcheckin.php?";
+
+    public static String waitCheckinList = host + "/search/waitcheckinlist.php?";
+
     public static String loginLink = host + "/login/login.php?";
 
     public static String checkLink = host + "/signup/check.php?";

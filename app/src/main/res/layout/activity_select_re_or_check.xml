@@ -70,6 +70,7 @@ tools:context="cn.edu.xmu.framelayoutdemo.MainActivity">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/checkinbutton"
             style="@style/common_green_white_button_style"
             android:textColor="#7a7"
             android:layout_marginLeft="10dp"

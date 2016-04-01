@@ -19,6 +19,10 @@ public class SelectReOrCheck extends Activity implements View.OnClickListener {
 
     private TextView historyOrder = null;
 
+    private TextView currentCheckin = null;
+
+    private Button CheckInButton = null;
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -37,6 +41,10 @@ public class SelectReOrCheck extends Activity implements View.OnClickListener {
         currentOrder.setOnClickListener(this);
         historyOrder = (TextView)findViewById(R.id.historyorder_text);
         historyOrder.setOnClickListener(this);
+        currentCheckin = (TextView)findViewById(R.id.currentcheckin_text);
+        currentCheckin.setOnClickListener(this);
+        CheckInButton = (Button)findViewById(R.id.checkinbutton);
+        CheckInButton.setOnClickListener(this);
     }
 
     @Override
@@ -55,6 +63,16 @@ public class SelectReOrCheck extends Activity implements View.OnClickListener {
             case R.id.historyorder_text: {
                 Intent intentToHistoryOrder = new Intent(this, HistoryOrderActivity.class);
                 startActivity(intentToHistoryOrder);
+                break;
+            }
+            case R.id.currentcheckin_text: {
+                Intent intentToCurrentCheckin = new Intent(this, CurrentCheckinActivity.class);
+                startActivity(intentToCurrentCheckin);
+                break;
+            }
+            case R.id.checkinbutton: {
+                Intent intentToCheckIn = new Intent(this, CheckinActivity.class);
+                startActivity(intentToCheckIn);
                 break;
             }
             default:
