@@ -26,7 +26,8 @@
         <activity android:name=".ReservActivity" />
         <activity android:name=".AvaRoomActivity" />
         <activity android:name=".RechargeActivity" />
-        <activity android:name=".CurrentOrderActivity"></activity>
+        <activity android:name=".CurrentOrderActivity" />
+        <activity android:name=".HistoryOrderActivity"></activity>
     </application>
 
 </manifest>

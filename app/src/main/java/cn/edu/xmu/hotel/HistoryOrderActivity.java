@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CurrentOrderActivity extends ListActivity {
+public class HistoryOrderActivity extends ListActivity {
 
     List<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
     private boolean errorflag = false;
@@ -62,7 +62,7 @@ public class CurrentOrderActivity extends ListActivity {
         String tempusername = pref.getString("tempusername", "");
         if(tempusername != "") {
             String temppassword = pref.getString("temppassword", "");
-            HttpUtil.sendHttpRequest(HttpUtil.currentOrderLink +
+            HttpUtil.sendHttpRequest(HttpUtil.historyOrderLink +
                     "id=" + tempusername + "&" +
                     "password=" + temppassword
                     , new HttpCallbackListener() {

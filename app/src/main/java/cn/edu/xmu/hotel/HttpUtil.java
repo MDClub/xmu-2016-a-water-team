@@ -18,6 +18,8 @@ public class HttpUtil {
 
     public static String currentOrderLink = host + "/search/currentorder.php?";
 
+    public static String historyOrderLink = host + "/search/historyorder.php?";
+
     public static String loginLink = host + "/login/login.php?";
 
     public static String checkLink = host + "/signup/check.php?";

@@ -17,6 +17,8 @@ public class SelectReOrCheck extends Activity implements View.OnClickListener {
 
     private TextView currentOrder = null;
 
+    private TextView historyOrder = null;
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -33,6 +35,8 @@ public class SelectReOrCheck extends Activity implements View.OnClickListener {
         button1.setOnClickListener(this);
         currentOrder = (TextView)findViewById(R.id.currentorder_text);
         currentOrder.setOnClickListener(this);
+        historyOrder = (TextView)findViewById(R.id.historyorder_text);
+        historyOrder.setOnClickListener(this);
     }
 
     @Override
@@ -46,6 +50,11 @@ public class SelectReOrCheck extends Activity implements View.OnClickListener {
             case R.id.currentorder_text: {
                 Intent intentToCurrentOrder = new Intent(this, CurrentOrderActivity.class);
                 startActivity(intentToCurrentOrder);
+                break;
+            }
+            case R.id.historyorder_text: {
+                Intent intentToHistoryOrder = new Intent(this, HistoryOrderActivity.class);
+                startActivity(intentToHistoryOrder);
                 break;
             }
             default:
