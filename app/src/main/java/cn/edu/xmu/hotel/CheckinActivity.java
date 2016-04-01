@@ -38,24 +38,37 @@ public class CheckinActivity extends ListActivity {
 
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        HttpUtil.sendHttpRequest(HttpUtil.selfCheckInLink, new HttpCallbackListener() {
-            @Override
-            public void onFinish(String response) {
-                Message msg = new Message();
-                msg.what = 0x789;
-                msg.obj = response;
-                handler.sendMessage(msg);
-            }
+        SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
+        String tempusername = pref.getString("tempusername", "");
+        if(tempusername != "") {
+            String temppassword = pref.getString("temppassword", "");
+            //Toast.makeText(MyApplication.getContext(), orderIdList.get(position), Toast.LENGTH_SHORT).show();
+            HttpUtil.sendHttpRequest(HttpUtil.selfCheckInLink +
+                    "id=" + tempusername + "&" +
+                    "password=" + temppassword + "&" +
+                    "orderid=" + orderIdList.get(position).toString()
+                    , new HttpCallbackListener() {
+                @Override
+                public void onFinish(String response) {
+                    Message msg = new Message();
+                    msg.what = 0x789;
+                    msg.obj = response;
+                    handler.sendMessage(msg);
+                }
 
-            @Override
-            public void onError(Exception e) {
-                Message msg = new Message();
-                msg.what = 0x456;
-                msg.obj = "网络错误,请重试!";
-                handler.sendMessage(msg);
-            }
-        });
-        Toast.makeText(MyApplication.getContext(), orderIdList.get(position), Toast.LENGTH_SHORT).show();
+                @Override
+                public void onError(Exception e) {
+                    Message msg = new Message();
+                    msg.what = 0x456;
+                    msg.obj = "网络错误,请重试!";
+                    handler.sendMessage(msg);
+                }
+            });
+        }
+        else {
+            Toast.makeText(MyApplication.getContext(), "登录超时,请返回主界面重新登录", Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 
     Handler handler = new Handler() {

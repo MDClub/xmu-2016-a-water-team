@@ -57,7 +57,6 @@
             android:gravity="center"
             android:orientation="horizontal" >
 
-
             <Button
                 android:id="@+id/negativeButton"
                 android:layout_height="wrap_content"
@@ -67,9 +66,6 @@
                 android:textStyle="bold"
                 style="@style/common_green_white_button_style"
                 android:text="@string/cancel" />
-                <!--style="@style/text_15_666666_sdw"-->
-
-
 
             <Button
                 android:id="@+id/positiveButton"
@@ -80,8 +76,6 @@
                 android:gravity="center"
                 android:textStyle="bold"
                 android:text="@string/ok"/>
-                <!--style="@style/text_15_ffffff_sdw"-->
-
 
         </LinearLayout>
     </LinearLayout>
