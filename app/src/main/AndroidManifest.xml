@@ -25,7 +25,8 @@
         <activity android:name=".SelectReOrCheck" />
         <activity android:name=".ReservActivity" />
         <activity android:name=".AvaRoomActivity" />
-        <activity android:name=".RechargeActivity"></activity>
+        <activity android:name=".RechargeActivity" />
+        <activity android:name=".CurrentOrderActivity"></activity>
     </application>
 
 </manifest>

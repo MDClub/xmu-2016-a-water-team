@@ -17,6 +17,7 @@
 
     <Button
         android:id="@+id/id_check"
+        style="@style/common_green_white_button_style"
         android:layout_height="wrap_content"
         android:text="检测一下以前是否注册过"/>
 
@@ -62,6 +63,7 @@
 
 
         <Button
+            style="@style/common_white_green_button_style"
             android:id="@+id/signup_checkcommit"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"

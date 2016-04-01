@@ -7,10 +7,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class SelectReOrCheck extends Activity implements View.OnClickListener {
 
     private Button button1 = null;
+
+    private TextView currentOrder = null;
 
     @Override
     protected void onDestroy() {
@@ -26,6 +31,8 @@ public class SelectReOrCheck extends Activity implements View.OnClickListener {
         ActivityCollector.addActivity(this);
         button1 = (Button)findViewById(R.id.reserv_select);
         button1.setOnClickListener(this);
+        currentOrder = (TextView)findViewById(R.id.currentorder_text);
+        currentOrder.setOnClickListener(this);
     }
 
     @Override
@@ -34,7 +41,15 @@ public class SelectReOrCheck extends Activity implements View.OnClickListener {
             case R.id.reserv_select:{
                 Intent intentToReserv = new Intent(this, ReservActivity.class);
                 startActivity(intentToReserv);
+                break;
             }
+            case R.id.currentorder_text: {
+                Intent intentToCurrentOrder = new Intent(this, CurrentOrderActivity.class);
+                startActivity(intentToCurrentOrder);
+                break;
+            }
+            default:
+                break;
         }
     }
 }

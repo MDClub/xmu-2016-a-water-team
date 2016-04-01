@@ -28,9 +28,9 @@ public class ReservActivity extends Activity implements View.OnClickListener {
 
     private TextView todayText = null;
 
-    private Button checkinDaySelect = null;
+    private TextView checkinDaySelect = null;
 
-    private Button leaveDaySelect = null;
+    private TextView leaveDaySelect = null;
 
     private Calendar calendar = Calendar.getInstance();
 
@@ -123,8 +123,8 @@ public class ReservActivity extends Activity implements View.OnClickListener {
         setContentView(R.layout.activity_reserv);
         ActivityCollector.addActivity(this);
         datePicker1=(DatePicker)findViewById(R.id.datePick1);
-        checkinDaySelect = (Button)findViewById(R.id.checkinday_select);
-        leaveDaySelect=(Button)findViewById(R.id.leaveday_select);
+        checkinDaySelect = (TextView)findViewById(R.id.checkinday_select);
+        leaveDaySelect=(TextView)findViewById(R.id.leaveday_select);
         startDayText=(TextView)findViewById(R.id.startdaytext);
         endDaytText=(TextView)findViewById(R.id.enddaytext);
         checkinDaySelect.setOnClickListener(this);
@@ -154,8 +154,8 @@ public class ReservActivity extends Activity implements View.OnClickListener {
                 }
                 else {
                     Intent intentToAvaRoom = new Intent(this, AvaRoomActivity.class);
-                    startCalendar.set(fYear, fMonth, fDay);
-                    endCalendar.set(sYear, sMonth, sDay);
+                    startCalendar.set(fYear, fMonth - 1, fDay);
+                    endCalendar.set(sYear, sMonth - 1, sDay);
                     long val = endCalendar.getTimeInMillis() - startCalendar.getTimeInMillis();
                     long day = val / (1000 * 60 * 60 * 24);
                     int days = (int)day;
@@ -178,7 +178,7 @@ public class ReservActivity extends Activity implements View.OnClickListener {
                 s1 = String.valueOf(fDay);
                 sb1.append(s1);
                 checkinDaySelectFlag = true;
-                startDayText.setText("入住时间:" + "\n" + sb1);
+                startDayText.setText("入住时间:" + "\n" + sb1 + "\n" + "\n");
                 checkinDaySelect.setText("修改入住时间");
                 break;
             }
@@ -193,7 +193,7 @@ public class ReservActivity extends Activity implements View.OnClickListener {
                 sb2.append(s2 + "-");
                 s2 = String.valueOf(sDay);
                 sb2.append(s2);
-                endDaytText.setText("离店时间:" + "\n" + sb2);
+                endDaytText.setText("离店时间:" + "\n" + sb2 + "\n" + "\n");
                 leaveDaySelect.setText("修改离店时间");
                 endDaySelectFlag = true;
                 break;

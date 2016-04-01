@@ -27,13 +27,22 @@
                 android:id="@+id/startdaytext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="入住时间:\n\n"/>
-
+                android:text="入住时间:\n\n\n"/>
+<!--
             <Button
+                style="@style/common_green_white_button_style"
                 android:id="@+id/checkinday_select"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="选这天入住"/>
+                -->
+            <TextView
+                android:id="@+id/checkinday_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选这天入住"
+                android:clickable="true"
+                android:textColor="#7a7"/>
         </TableRow>
 
         <TableRow>
@@ -41,17 +50,28 @@
                 android:id="@+id/enddaytext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="离店时间:\n\n"/>
-
+                android:text="离店时间:\n\n\n"/>
+<!--
             <Button
+                style="@style/common_green_white_button_style"
                 android:id="@+id/leaveday_select"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="选这天离店"/>
+                -->
+
+            <TextView
+                android:id="@+id/leaveday_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选这天离店"
+                android:textColor="#7a7"
+                android:clickable="true"/>
         </TableRow>
     </TableLayout>
 
     <Button
+        style="@style/common_white_green_button_style"
         android:id="@+id/dayselectbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

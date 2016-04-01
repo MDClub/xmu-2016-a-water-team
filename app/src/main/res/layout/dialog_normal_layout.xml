@@ -60,23 +60,27 @@
 
             <Button
                 android:id="@+id/negativeButton"
-                style="@style/text_15_666666_sdw"
                 android:layout_height="wrap_content"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:textStyle="bold"
+                style="@style/common_green_white_button_style"
                 android:text="@string/cancel" />
+                <!--style="@style/text_15_666666_sdw"-->
+
+
 
             <Button
                 android:id="@+id/positiveButton"
-                style="@style/text_15_ffffff_sdw"
+                style="@style/common_green_white_button_style"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:text="@string/ok" />
+                android:text="@string/ok"/>
+                <!--style="@style/text_15_ffffff_sdw"-->
 
 
         </LinearLayout>

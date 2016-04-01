@@ -63,7 +63,11 @@ public class AvaRoomActivity extends ListActivity {
                             intent.putExtra("amount", Integer.parseInt(amount));
                             startActivity(intent);
                         }
-
+                        else if(code == 1003) {
+                            Intent intentToMyInfo = new Intent(MyApplication.getContext(), SelectReOrCheck.class);
+                            startActivity(intentToMyInfo);
+                            finish();
+                        }
                     }
 
                     @Override
@@ -177,7 +181,7 @@ public class AvaRoomActivity extends ListActivity {
                 }
                 else {
                     Toast.makeText(MyApplication.getContext(), "登录超时！请重新登录！", Toast.LENGTH_SHORT);
-                    return;
+                    finish();
                 }
             }
         });

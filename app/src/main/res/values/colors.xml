@@ -6,4 +6,7 @@
 
     <color name="white">#f7f7f7</color>
     <color name="grey">#dedede</color>
+
+    <color name="pressedGreen">#6b996b</color>
+    <color name="green">#7a7</color>
 </resources>

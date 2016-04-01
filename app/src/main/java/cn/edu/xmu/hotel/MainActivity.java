@@ -10,15 +10,17 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 
-    private Button reg = null;
+    private TextView reg = null;
 
     private Button login = null;
 
@@ -87,8 +89,9 @@ public class MainActivity extends Activity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
-        reg = (Button)findViewById(R.id.reg);
+        reg = (TextView)findViewById(R.id.reg);
         login = (Button)findViewById(R.id.login);
         id_edit = (EditText)findViewById(R.id.id_edit);
         password_edit = (EditText)findViewById(R.id.password_edit);
