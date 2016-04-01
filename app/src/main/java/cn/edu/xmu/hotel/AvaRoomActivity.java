@@ -140,7 +140,6 @@ public class AvaRoomActivity extends ListActivity {
 
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-
         int totalPrice = days * (Integer.parseInt(roomTypePrice.get(position).toString()));
         CustomDialog.Builder builder = new CustomDialog.Builder(this);
         roomtypeCommit = roomTypeList.get(position).toString();
@@ -149,7 +148,6 @@ public class AvaRoomActivity extends ListActivity {
         builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                //设置你的操作事项
                 SharedPreferences pref = getSharedPreferences("data", MODE_PRIVATE);
                 String tempusername = pref.getString("tempusername", "");
                 if(tempusername != "") {

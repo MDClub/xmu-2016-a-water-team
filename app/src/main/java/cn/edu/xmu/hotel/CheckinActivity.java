@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
+import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
@@ -21,6 +23,8 @@ import java.util.Map;
 public class CheckinActivity extends ListActivity {
 
     List<Map<String, Object>> dataList = new ArrayList<Map<String, Object>>();
+    List<String> orderIdList = new ArrayList<String>();
+
     private boolean errorflag = false;
     private String infoMessage = null;
     @Override
@@ -30,6 +34,28 @@ public class CheckinActivity extends ListActivity {
                 new String[]{"title","startday","endday","status","orderid","totalprice"},
                 new int[]{R.id.title,R.id.startday,R.id.endday,R.id.status,R.id.orderid,R.id.totalprice});
         setListAdapter(adapter);
+    }
+
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        HttpUtil.sendHttpRequest(HttpUtil.selfCheckInLink, new HttpCallbackListener() {
+            @Override
+            public void onFinish(String response) {
+                Message msg = new Message();
+                msg.what = 0x789;
+                msg.obj = response;
+                handler.sendMessage(msg);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                Message msg = new Message();
+                msg.what = 0x456;
+                msg.obj = "网络错误,请重试!";
+                handler.sendMessage(msg);
+            }
+        });
+        Toast.makeText(MyApplication.getContext(), orderIdList.get(position), Toast.LENGTH_SHORT).show();
     }
 
     Handler handler = new Handler() {
@@ -51,6 +77,20 @@ public class CheckinActivity extends ListActivity {
             }
             else if (msg.what == 0x456) {
                 Toast.makeText(MyApplication.getContext(), (String) msg.obj, Toast.LENGTH_SHORT).show();
+            }
+            else if (msg.what == 0x789) {
+                NewAppJSONObject.parseJSONWithJSONObject(s, new JSONCallbackListener() {
+                    @Override
+                    public void onFinish(String data, String info, int code) {
+                        Toast.makeText(MyApplication.getContext(), info, Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Toast.makeText(MyApplication.getContext(), "客户端JSON数据解析错误,请重试!", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         }
     };
@@ -116,6 +156,7 @@ public class CheckinActivity extends ListActivity {
                     String amount = jsonObject.getString("amount");
                     String status = jsonObject.getString("status");
                     String orderid = jsonObject.getString("orderid");
+                    orderIdList.add(orderid);
                     amount = "总金额: " + amount + "元";
                     orderid = "订单号: " + orderid;
                     starttime = "起止时间: " + starttime + " --- ";
