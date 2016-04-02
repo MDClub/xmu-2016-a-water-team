@@ -94,7 +94,7 @@ public class SignUp extends Activity implements OnClickListener{
             case R.id.signup_checkcommit:
                 try {
                     if ((id_Edit_SignUp.getText().length() == 18) && (nameSignUP.getText().length() != 0)
-                            && (mobileSignUp.getText().toString().matches("^[0-9]+$") == true) && (passwordSignUp.getText().length() != 0))
+                  &&  (id_Edit_SignUp.getText().toString().matches("^[0-9]+$") == true) && (mobileSignUp.getText().toString().matches("^[0-9]+$") == true) && (passwordSignUp.getText().length() != 0))
                         HttpUtil.sendHttpRequest(HttpUtil.signupCommitLink + "id=" + id_Edit_SignUp.getText()
                                 + "&" + "name=" + URLEncoder.encode(nameSignUP.getText().toString(), "UTF-8")
                                 + "&" + "sex=" + URLEncoder.encode(sexSelect.getSelectedItem().toString(), "UTF-8")

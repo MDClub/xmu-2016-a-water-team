@@ -13,8 +13,8 @@ import java.net.URL;
  */
 public class HttpUtil {
 
-    public static String host = "http://10.30.31.204";
-    //public static String host = "http://119.29.101.221/ftpuser";
+    //public static String host = "http://10.30.31.204";
+    public static String host = "http://119.29.101.221";
     public static String selfCheckInLink = host + "/commit/selfcheckin.php?";
 
     public static String currentOrderLink = host + "/search/currentorder.php?";

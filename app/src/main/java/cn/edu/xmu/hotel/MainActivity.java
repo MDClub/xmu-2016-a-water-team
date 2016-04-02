@@ -202,7 +202,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 startActivity(intentToCheck);
                 break;
             case R.id.login:
-                if(id_edit.getText().length() == 18) {
+                if((id_edit.getText().length() == 18)&&(id_edit.getText().toString().matches("^[0-9]+$") == true)) {
                     String tempPassword;
                     if(deleteFlag == true) {
                         tempPassword = MD5.stringToMD5(password_edit.getText().toString());
